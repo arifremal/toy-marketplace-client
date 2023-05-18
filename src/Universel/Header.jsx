@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Components/AuthProvide/AuthProvider";
 
 const Header = () => {
+  const{loggedOut,visitor}= useContext(AuthContext)
+  const LoggedOutUser=()=>{
+    loggedOut()
+    .then()
+    .catch((error)=>{
+      console.log(error);
+    })
+  }
   const NavBar = (
     <>
       <li className="uppercase"><Link to={'/'}>Home</Link> </li>
@@ -49,8 +59,27 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <Link to={'/login'} className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500">Login</Link>
-           
+        {visitor && (
+                <div className="me-1"><Link>
+                {/* <FaUserCircle style={{fontSize:'2rem'}} ></FaUserCircle> */}
+                <img
+                  style={{ height: "45px" }}
+                  className="rounded-xl"
+                  src={visitor.photoURL}
+                  alt=""
+                />
+              </Link></div>
+              )}
+
+      
+      
+      {
+        visitor? ( <button onClick={LoggedOutUser} className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500">LogOut</button>
+        ) : ( <Link to={'/login'} className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500">Login</Link>
+        )
+      }
+      
+       
        
         </div>
       </div>
