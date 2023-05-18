@@ -1,10 +1,26 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Components/AuthProvide/AuthProvider";
 
 const SignUp = () => {
+    const {createVisitor}=useContext(AuthContext)
     const SignUpSubmit = event=>{
         event.preventDefault()
         const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        console.log(name,email,password,photo);
         
+        createVisitor(email,password)
+        .then(result=>{
+            const visitor = result.visitor;
+            console.log(visitor);
+        })
+        .then(error=>console.log(error))
+
+
     }
     return (
         <div className="hero min-h-screen bg-green-600">
