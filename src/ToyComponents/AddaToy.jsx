@@ -21,6 +21,7 @@ const AddaToy = () => {
     .then(res=> res.json())
     .then ((result=>{
       console.log(result);
+      alert('added')
     }))
 
   };
@@ -30,7 +31,7 @@ const AddaToy = () => {
         Add a <span className="text-green-500"> Toy </span>
       </h1>
       <div className="items-center p-10 mx-auto ">
-        <form onSubmit={ handleSubmit(toyPost)}>
+      <form onSubmit={ handleSubmit(toyPost)}>
           {errors.exampleRequired && <span>This field is required</span>}
           <input
             className="border w-1/2  p-1"
@@ -49,7 +50,7 @@ const AddaToy = () => {
           />
           <input
             className="border p-1  w-1/2 my-2  "
-            value={visitor?.seller_email}
+            value={visitor?.email}
             {...register("seller_email")}
             placeholder="your email"
             type="email"

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Toysshop from '../Components/Toysshop';
 
 const AllToy = () => {

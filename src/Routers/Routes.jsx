@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/view/:id',
-          element:<SingleToy></SingleToy>,
+          element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
           loader:({params})=> fetch(`http://localhost:5000/toys/${params.id}`)
 
         },
