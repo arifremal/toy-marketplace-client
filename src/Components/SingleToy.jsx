@@ -12,7 +12,7 @@ const SingleToy = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img
-            src={"https://i.ibb.co/3vWV2CK/rsz-71uv2p59vcl.jpg"}
+            src={picture_url}
             alt="Album"
           />
         </figure>

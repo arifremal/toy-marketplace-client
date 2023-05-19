@@ -81,12 +81,16 @@ const Header = () => {
           )}
 
           {visitor ? (
+          <>
+
+
             <button
               onClick={LoggedOutUser}
               className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500"
             >
               LogOut
             </button>
+          </>
           ) : (
             <Link
               to={"/login"}
