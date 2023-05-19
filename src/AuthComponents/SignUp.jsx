@@ -62,7 +62,7 @@ const SignUp = () => {
               </div>
               <div className="form-control mt-6">
                
-                <input className="btn bg-green-500 border-none" type="submit" value="Sign Up" />
+                <input className="btn bg-green-500 hover:bg-black border-none" type="submit" value="Sign Up" />
               </div>
        </form>
             </div>

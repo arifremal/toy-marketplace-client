@@ -8,7 +8,7 @@ const Home = () => {
         <div className="hero-content  flex-col lg:flex-row">
           <img className="rounded-lg p-3" src={"https://i.ibb.co/3vWV2CK/rsz-71uv2p59vcl.jpg"} />
           <div>
-            <h1 className="text-5xl font-bold">THE UK'S NO. 1 SOURCE FOR ALL  THINGS MARVEL LEGENDS</h1>
+            <h1 className="text-5xl font-bold">THE  NO. 1 SOURCE FOR ALL  THINGS MARVEL LEGENDS</h1>
             <p className="py-6">
             WHERE LEGENDS ARE MADE
 

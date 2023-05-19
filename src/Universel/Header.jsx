@@ -3,22 +3,31 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
 
 const Header = () => {
-  const{loggedOut,visitor}= useContext(AuthContext)
-  const LoggedOutUser=()=>{
+  const { loggedOut, visitor } = useContext(AuthContext);
+  const LoggedOutUser = () => {
     loggedOut()
-    .then()
-    .catch((error)=>{
-      console.log(error);
-    })
-  }
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const NavBar = (
     <>
-      <li className="uppercase"><Link to={'/'}>Home</Link> </li>
-      <li className="uppercase" ><Link to={'/'}>All Toys</Link> </li>
-      <li className="uppercase"><Link to={'/'}>Add A Toy</Link> </li>
-      <li className="uppercase"><Link to={'/'}>Blogs</Link> </li>
-    
-       
+      <li>
+        <Link to={"/"}>Home</Link>{" "}
+      </li>
+      <li>
+        <Link to={"/alltoy"}>All Toys</Link>{" "}
+      </li>
+      <li>
+        <Link to={"/mytoy"}>My Toy</Link>{" "}
+      </li>
+      <li>
+        <Link to={"/addatoy"}>Add A Toy</Link>{" "}
+      </li>
+      <li>
+        <Link to={"/"}>Blogs</Link>{" "}
+      </li>
     </>
   );
   return (
@@ -54,33 +63,38 @@ const Header = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 ">
-           {NavBar}
-          </ul>
+          <ul className="menu menu-horizontal px-1 ">{NavBar}</ul>
         </div>
         <div className="navbar-end">
-        {visitor && (
-                <div className="me-1"><Link>
+          {visitor && (
+            <div className="me-1">
+              <Link>
                 {/* <FaUserCircle style={{fontSize:'2rem'}} ></FaUserCircle> */}
                 <img
                   style={{ height: "45px" }}
-                  className="rounded-xl"
+                  className="rounded-full"
                   src={visitor.photoURL}
                   alt=""
                 />
-              </Link></div>
-              )}
+              </Link>
+            </div>
+          )}
 
-      
-      
-      {
-        visitor? ( <button onClick={LoggedOutUser} className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500">LogOut</button>
-        ) : ( <Link to={'/login'} className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500">Login</Link>
-        )
-      }
-      
-       
-       
+          {visitor ? (
+            <button
+              onClick={LoggedOutUser}
+              className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500"
+            >
+              LogOut
+            </button>
+          ) : (
+            <Link
+              to={"/login"}
+              className="btn btn-outline border-1 text-green-600  hover:text-white hover:bg-green-500"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

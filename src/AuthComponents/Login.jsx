@@ -76,13 +76,13 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn bg-green-500 border-none"
+                  className="btn bg-green-500 border-none hover:bg-black"
                   type="submit"
                   value="Login"
                 /> <br />
-                or
+                <strong className="text-center">or</strong>
                 <br />
-                <button onClick={googleVisitors}>Continue with google</button>
+                <button className="btn btn-outline border-green-500 hover:bg-black" onClick={googleVisitors}>Continue with google</button>
               </div>
             </form>
           </div>
