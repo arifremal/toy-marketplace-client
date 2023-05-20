@@ -68,15 +68,19 @@ const Header = () => {
         <div className="navbar-end">
           {visitor && (
             <div className="me-1">
+              <div className="tooltip tooltip-bottom" data-tip={visitor.displayName}>
               <Link>
                 {/* <FaUserCircle style={{fontSize:'2rem'}} ></FaUserCircle> */}
                 <img
                   style={{ height: "45px" }}
-                  className="rounded-full"
+                  className="rounded-full tooltip tooltip-bottom" data-tip="hello"
                   src={visitor.photoURL}
                   alt=""
                 />
               </Link>
+              
+ 
+</div>
             </div>
           )}
 

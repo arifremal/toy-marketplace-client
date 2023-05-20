@@ -4,6 +4,7 @@ import ToysCard from "./ToysCard";
 const Toysshop = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [toys, setToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState("ascending");
   useEffect(() => {
     fetch("http://localhost:5000/toys")
       .then((res) => res.json())
@@ -19,6 +20,25 @@ const Toysshop = () => {
     return toyName.includes(query);
   });
 
+  const handleSort = () => {
+    setSortOrder(sortOrder === "ascending" ? "descending" : "ascending");
+  };
+
+  const handleSortAscending = () => {
+    setSortOrder("ascending");
+  };
+
+  const handleSortDescending = () => {
+    setSortOrder("descending");
+  };
+
+  const sortedToys = filteredToys.sort((a, b) => {
+    const priceA = a.price;
+    const priceB = b.price;
+    return sortOrder === "ascending" ? priceA - priceB : priceB - priceA;
+  });
+
+
   return (
     <div>
       
@@ -30,8 +50,11 @@ const Toysshop = () => {
           placeholder="Search by toy name"
           value={searchQuery}
           onChange={handleSearch}
-        />
+        /> <br /> <br />
+        <button className="btn bg-green-500 btn-xs border-none ms-2" onClick={handleSortAscending}>Lower Price</button>
+      <button className="btn bg-green-500 btn-xs border-none ms-2" onClick={handleSortDescending}>Hogher Price</button>
       </div>
+
 
 <table className="table w-full">
           {/* head */}
@@ -48,7 +71,7 @@ const Toysshop = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredToys.map((toy) => (
+            {sortedToys.map((toy) => (
               <ToysCard
                 key={toy._id}
                 toy={toy}

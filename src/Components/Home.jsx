@@ -1,14 +1,20 @@
+import { useEffect } from "react";
 import GaleeryCard from "./GaleeryCard";
 import ShoByCategory from "./ShoByCategory";
+import AOS from'aos';
+import'aos/dist/aos.css'
 
 const Home = () => {
+  useEffect(()=>{
+AOS.init({duration:2000})
+  },[])
   return (
     <div>
       <div className="p-10">
         <div className="hero min-h-screen bg-white p-4">
           <div className="hero-content  flex-col lg:flex-row">
             <img
-              className="rounded-lg p-3 w-1/2 "
+              className="rounded-lg p-3 w-1/2 " data-aos="fade-up"
               src={
                 "https://i.ibb.co/F7S3FJY/hero.png"
               }
@@ -31,7 +37,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="avatar">
-                  <div className="w-12">
+                  <div className="w-12" data-aos="fade-up">
                     <img
                       src={
                         "https://www.gannett-cdn.com/presto/2019/11/05/USAT/aead9a73-6324-4135-b76c-e15d0921b14f-Full_Size_American_Girl_1.jpg"
@@ -39,8 +45,8 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className="avatar">
-                  <div className="w-12">
+                <div className="avatar"data-aos="fade-up">
+                  <div className="w-12"data-aos="fade-up">
                     <img
                       src={
                         "https://images-na.ssl-images-amazon.com/images/I/71x8m8uqRyL._AC_UL600_SR600,600_.jpg"
@@ -115,7 +121,7 @@ const Home = () => {
               stay connect with us{" "}
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="fade-left">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="fade-up">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
