@@ -1,4 +1,7 @@
+import usePath from "../hooks/usePath";
+
 const Blog = () => {
+  usePath('blog')
   return (
     <div>
       <h1 className="text-center text-3xl font-bold p-2 uppercase ">

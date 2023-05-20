@@ -1,7 +1,9 @@
 
 import Toysshop from '../Components/Toysshop';
+import usePath from '../hooks/usePath';
 
 const AllToy = () => {
+    usePath('All Toy')
     return (
         <div>
                  <h1 className="text-center text-3xl font-bold p-2 uppercase ">

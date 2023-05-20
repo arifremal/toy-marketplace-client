@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
+import usePath from "../hooks/usePath";
 
 const SignUp = () => {
     const {createVisitor}=useContext(AuthContext)
+    usePath('SignUp')
     const SignUpSubmit = event=>{
         event.preventDefault()
         const form = event.target;
@@ -17,6 +19,7 @@ const SignUp = () => {
         .then(result=>{
             const visitor = result.visitor;
             console.log(visitor);
+            form.reset()
         })
         .then(error=>console.log(error))
 
@@ -27,7 +30,10 @@ const SignUp = () => {
         <div className="hero-content flex-col lg:flex">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold text-center text-white">Registration now!</h1>
-            <p className="py-6 text-center">Provident cupiditate voluptatem et in. <br /> Quaerat fugiat ut assumenda excepturi exercitationem quasi. </p>
+            <p className="py-6 text-center">
+          If you want to explore more
+             <br />  such as view Details,Add a Toy pages and so on
+          </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-100">
             <div className="card-body">

@@ -19,9 +19,9 @@ const Header = () => {
       <li>
         <Link className="hover:bg-green-500 active:bg-green-500" to={"/alltoy"}>All Toys</Link>{" "}
       </li>
-      <li>
+      { visitor && <li>
         <Link className="hover:bg-green-500 active:bg-green-500" to={"/mytoy"}>My Toy</Link>{" "}
-      </li>
+      </li>}
       <li>
         <Link className="hover:bg-green-500 active:bg-green-500" to={"/addatoy"}>Add A Toy</Link>{" "}
       </li>

@@ -1,9 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
+import usePath from "../hooks/usePath";
 
 const Login = () => {
   const {signInVisitor, googleUser}= useContext(AuthContext)
+  const navigate= useNavigate()
+  const path = useLocation()
+  usePath('Login')
+  const from = path.state?.from?.pathname || '/'
+  console.log(from);
   const loginSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -13,6 +19,10 @@ const Login = () => {
     .then(result=>{
       const visitor = result.visitor;
       console.log(visitor);
+      form.reset();
+      navigate('/')
+      
+      
   })
   .then(error=>console.log(error))
   };
@@ -37,8 +47,8 @@ const Login = () => {
             Login now!
           </h1>
           <p className="py-6 text-center">
-            Provident cupiditate voluptatem et in. <br /> Quaerat fugiat ut
-            assumenda excepturi exercitationem quasi.{" "}
+          If you want to explore more
+             <br />  such as view Details,Add a Toy pages and so on
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-100">

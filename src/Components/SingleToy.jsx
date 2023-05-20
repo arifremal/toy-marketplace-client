@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
+import usePath from "../hooks/usePath";
 
 const SingleToy = () => {
+  usePath('Details')
   const toys = useLoaderData();
   const { price,picture_url,name,seller_name,seller_email,available_quantity,detail_description,rating } = toys;
   return (

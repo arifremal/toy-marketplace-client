@@ -2,9 +2,11 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
+import usePath from "../hooks/usePath";
 
 const AddaToy = () => {
   const { visitor } = useContext(AuthContext);
+  usePath('Add a toy')
 
   const {
     register,

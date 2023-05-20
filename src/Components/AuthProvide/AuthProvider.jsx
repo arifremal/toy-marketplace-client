@@ -38,7 +38,7 @@ const loggedOut = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentVisitor) => {
       setVisitor(currentVisitor);
-console.log(currentVisitor);
+
       setLoader(false);
     });
     return () => {

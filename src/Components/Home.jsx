@@ -3,8 +3,10 @@ import GaleeryCard from "./GaleeryCard";
 import ShoByCategory from "./ShoByCategory";
 import AOS from'aos';
 import'aos/dist/aos.css'
+import usePath from "../hooks/usePath";
 
 const Home = () => {
+  usePath('Home')
   useEffect(()=>{
 AOS.init({duration:2000})
   },[])
@@ -12,15 +14,15 @@ AOS.init({duration:2000})
     <div>
       <div className="p-10">
         <div className="hero min-h-screen bg-white p-4">
-          <div className="hero-content  flex-col lg:flex-row">
+          <div className="hero-content  flex-col lg:flex-row ">
             <img
-              className="rounded-lg p-3 w-1/2 " data-aos="fade-up"
+              className="rounded-lg p-3 sm:w-full  md:w-1/2 " data-aos="fade-up"
               src={
                 "https://i.ibb.co/F7S3FJY/hero.png"
               }
             />
             <div>
-              <h1 className="text-5xl font-bold">
+              <h1 className="sm:text-4xl md:text-5xl font-bold">
               Discover <span className="text-green-500 underline">endless</span> joy with our toys collections!
               </h1>
               <p className="py-6">
@@ -55,7 +57,7 @@ AOS.init({duration:2000})
                   </div>
                 </div>
                 <div className="avatar placeholder">
-                  <div className="w-12 bg-green-500 text-neutral-content">
+                  <div className="w-12 bg-black text-neutral-content">
                     <span>+10</span>
                   </div>
                 </div>
