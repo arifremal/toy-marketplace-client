@@ -6,8 +6,7 @@ const SubToyCard = ({ toy }) => {
     picture_url,
     price,
     rating,
-
-    sub_category,
+  
     name,
   } = toy;
   return (
@@ -22,8 +21,8 @@ const SubToyCard = ({ toy }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
-          <p>{price}</p>
-          <p>{rating}</p>
+          <p>Price:{price}</p>
+          <p>Rating:{rating}</p>
           <div className="card-actions justify-end">
           <Link to={`/view/${_id}`} className="">
             {" "}

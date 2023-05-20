@@ -20,17 +20,17 @@ const ShoByCategory = () => {
 
   <Tabs>
         <TabList>
-          <Tab>Art & Craft</Tab>
-          <Tab>Construction Toy</Tab>
-          <Tab>Musical Instrument</Tab>
+          <Tab>Baby Dolls</Tab>
+          <Tab>Barbie Toy</Tab>
+          <Tab>American Girl</Tab>
         </TabList>
 
-        <TabPanel>{renderToysByCategory('Art & Craft')}
+        <TabPanel>{renderToysByCategory('Baby Dolls')}
         
         
         </TabPanel>
-        <TabPanel>{renderToysByCategory('Construction Toy')}</TabPanel>
-        <TabPanel>{renderToysByCategory('Musical Instrument')}</TabPanel>
+        <TabPanel>{renderToysByCategory('Barbie')}</TabPanel>
+        <TabPanel>{renderToysByCategory('American Girl')}</TabPanel>
       </Tabs>
   </div>;
 };

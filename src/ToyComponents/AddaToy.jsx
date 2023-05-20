@@ -74,9 +74,9 @@ const AddaToy = () => {
           />
           <p className="py-2">Sub-Category</p>
           <select className="border p-1 w-full  " {...register("sub_category")}>
-            <option value="Art & Craft">Art & Craft</option>
-            <option value="Musical Instrument">Musical Instrument</option>
-            <option value="Construction Toy">Construction Toy</option>
+            <option value="Baby Dolls"> Baby Dolls</option>
+            <option value="American Girl">American girl</option>
+            <option value="Barbie">Barbie</option>
           </select>
           <input
             className="w-full p-8 border mb-5"
