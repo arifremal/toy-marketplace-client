@@ -10,16 +10,15 @@ const Home = () => {
             <img
               className="rounded-lg p-3 w-1/2 "
               src={
-                "https://media.cnn.com/api/v1/images/stellar/prod/210310140916-barbie-dolls-play-stock.jpg?q=x_3,y_156,h_1684,w_2993,c_crop/h_720,w_1280"
+                "https://i.ibb.co/F7S3FJY/hero.png"
               }
             />
             <div>
               <h1 className="text-5xl font-bold">
-                THE NO. 1 SOURCE FOR ALL THINGS MARVEL LEGENDS
+              Discover <span className="text-green-500 underline">endless</span> joy with our toys collections!
               </h1>
               <p className="py-6">
-                WHERE LEGENDS ARE MADE BACKGROUND ARTIST CREDIT – MICHAEL BELL
-                AKA @3_SHOTS3
+              Delight in American Girl, Barbie, and Baby Dolls
               </p>
               <div className="avatar-group -space-x-6">
                 <div className="avatar">
@@ -55,7 +54,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <button className="btn  bg-green-500 border-none hover:bg-black">
+              <button className="btn my-2 bg-green-500 border-none hover:bg-black">
                 Get Started
               </button>
             </div>

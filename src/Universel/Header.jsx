@@ -14,19 +14,19 @@ const Header = () => {
   const NavBar = (
     <>
       <li>
-        <Link to={"/"}>Home</Link>{" "}
+        <Link className="hover:bg-green-500 active:bg-green-500" to={"/"}>Home</Link>{" "}
       </li>
       <li>
-        <Link to={"/alltoy"}>All Toys</Link>{" "}
+        <Link className="hover:bg-green-500 active:bg-green-500" to={"/alltoy"}>All Toys</Link>{" "}
       </li>
       <li>
-        <Link to={"/mytoy"}>My Toy</Link>{" "}
+        <Link className="hover:bg-green-500 active:bg-green-500" to={"/mytoy"}>My Toy</Link>{" "}
       </li>
       <li>
-        <Link to={"/addatoy"}>Add A Toy</Link>{" "}
+        <Link className="hover:bg-green-500 active:bg-green-500" to={"/addatoy"}>Add A Toy</Link>{" "}
       </li>
       <li>
-        <Link to={"/"}>Blogs</Link>{" "}
+        <Link className="hover:bg-green-500 active:bg-green-500" to={"/blog"}>Blogs</Link>{" "}
       </li>
     </>
   );

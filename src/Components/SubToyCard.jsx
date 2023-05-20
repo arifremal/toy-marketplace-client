@@ -19,10 +19,12 @@ const SubToyCard = ({ toy }) => {
             alt="Movie"
           />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <p>Price:{price}</p>
-          <p>Rating:{rating}</p>
+        <div className="card-body text-center">
+         <div className="text-center">
+         <h2 className="card-title ">{name}</h2>
+          <p className="text-start">Price:{price}</p>
+          <p className="text-start">Rating:{rating}</p>
+         </div>
           <div className="card-actions justify-end">
           <Link to={`/view/${_id}`} className="">
             {" "}
