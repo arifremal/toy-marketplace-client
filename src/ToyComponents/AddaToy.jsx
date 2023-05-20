@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
 import usePath from "../hooks/usePath";
+import Swal from "sweetalert2";
 
 const AddaToy = () => {
   const { visitor } = useContext(AuthContext);
@@ -23,7 +24,14 @@ const AddaToy = () => {
     .then(res=> res.json())
     .then ((result=>{
       console.log(result);
-      alert('added')
+      
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Well Done added',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }))
 
   };

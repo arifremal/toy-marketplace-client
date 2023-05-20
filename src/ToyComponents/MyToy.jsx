@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
 import MytoyTable from "./MytoyTable";
 import usePath from "../hooks/usePath";
+import Swal from "sweetalert2";
 
 const MyToy = () => {
   usePath('My Toy')
@@ -10,22 +11,39 @@ const MyToy = () => {
   const [update,SetUpdate] = useState(false)
 
   const toyDelete = (id) => {
-    const process = confirm("Are you sure want to delete");
-    if (process) {
-      fetch(`http://localhost:5000/toys/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-
-          if (data.deletedCount > 0) {
-            alert("deleted");
-            const remain = toys.filter((toy) => toy._id !== id);
-            setToys(remain);
-          }
-        });
-    }
+   
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+  
+            if (data.deletedCount > 0) {
+              Swal.fire({
+    position: 'top-center',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  })
+              const remain = toys.filter((toy) => toy._id !== id);
+              setToys(remain);
+            }
+          });
+      }
+    })
+   
   };
 
   useEffect(() => {
@@ -46,6 +64,13 @@ const MyToy = () => {
       .then((result) => {
         if (result.modifiedCount > 0) {
           SetUpdate(!update);
+          Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'updated SucceedFully ',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
         console.log(result);
       });

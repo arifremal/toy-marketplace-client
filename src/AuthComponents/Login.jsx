@@ -1,15 +1,14 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvide/AuthProvider";
-import usePath from "../hooks/usePath";
 
 const Login = () => {
   const {signInVisitor, googleUser}= useContext(AuthContext)
   const navigate= useNavigate()
   const path = useLocation()
-  usePath('Login')
   const from = path.state?.from?.pathname || '/'
   console.log(from);
+
   const loginSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +19,8 @@ const Login = () => {
       const visitor = result.visitor;
       console.log(visitor);
       form.reset();
-      navigate('/')
+      navigate(from)
+   
       
       
   })
@@ -29,8 +29,9 @@ const Login = () => {
   const googleVisitors=()=>{
     googleUser()
     .then((result)=>{
-      const googleVisitor= result.visitor
-      console.log(googleVisitor);
+     const user = result.user;
+     console.log(user);
+     navigate(from)
     })
   }
 
