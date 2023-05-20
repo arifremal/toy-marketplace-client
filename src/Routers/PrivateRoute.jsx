@@ -9,6 +9,7 @@ const PrivateRoute = ({children}) => {
         return <progress className="progress w-56 mx-auto"></progress>
     }
     if(visitor?.email){
+        
         return children
     }
     return <Navigate to={'/login'} replace ></Navigate>
