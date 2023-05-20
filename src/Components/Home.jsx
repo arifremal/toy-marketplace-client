@@ -73,12 +73,13 @@ const Home = () => {
           Shop by <span className="text-green-500">category</span>
         </h1>
         <ShoByCategory></ShoByCategory>
-      </div>
+      </div >
 
       <h1 className="text-center text-3xl font-bold p-2 uppercase ">
         Seller <span className="text-green-500">Review</span>
       </h1>
-      <div className="text-center py-4 ">
+    <div >
+    <div className="text-center py-4  "data-aos="fade-up" >
         <div className="avatar indicator text-center mr-20">
           <span className="indicator-item badge bg-black">Nice Product</span>
           <div className="w-20 h-20 rounded-full">
@@ -99,11 +100,12 @@ const Home = () => {
         </div>
     
       </div>
+    </div>
 
       <h1 className="text-center text-3xl font-bold p-2 uppercase ">
         Get in <span className="text-green-500">touch</span>
       </h1>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200" >
         <div className="hero-content flex-col lg:flex-row p-6">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Contact US!</h1>
@@ -113,7 +115,7 @@ const Home = () => {
               stay connect with us{" "}
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="fade-left">
             <div className="card-body">
               <div className="form-control">
                 <label className="label">
