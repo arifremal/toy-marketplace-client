@@ -5,72 +5,75 @@ import usePath from "../hooks/usePath";
 import Swal from "sweetalert2";
 
 const MyToy = () => {
-  usePath('My Toy')
+  usePath("My Toy");
   const { visitor } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  const [update,SetUpdate] = useState(false)
+  const [update, SetUpdate] = useState(false);
 
   const toyDelete = (id) => {
-   
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toy-mart-server-arifremal.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-  
+
             if (data.deletedCount > 0) {
               Swal.fire({
-    position: 'top-center',
-    icon: 'success',
-    title: 'Your work has been saved',
-    showConfirmButton: false,
-    timer: 1500
-  })
+                position: "top-center",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500,
+              });
               const remain = toys.filter((toy) => toy._id !== id);
               setToys(remain);
             }
           });
       }
-    })
-   
+    });
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoy/${visitor?.email}`)
+    fetch(
+      `https://toy-mart-server-arifremal.vercel.app/mytoy/${visitor?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
       });
-  }, [visitor,update]);
+  }, [visitor, update]);
 
   const toyUpdate = (data) => {
-    fetch(`http://localhost:5000/toyupdate/${data?._id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://toy-mart-server-arifremal.vercel.app/toyupdate/${data?._id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         if (result.modifiedCount > 0) {
           SetUpdate(!update);
           Swal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: 'updated SucceedFully ',
+            position: "top-center",
+            icon: "success",
+            title: "updated SucceedFully ",
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
         console.log(result);
       });

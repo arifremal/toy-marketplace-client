@@ -4,7 +4,7 @@ import GallerySingle from "./GallerySingle";
 const GaleeryCard = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://toy-mart-server-arifremal.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);

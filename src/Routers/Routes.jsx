@@ -15,45 +15,57 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    errorElement:<NotFound></NotFound>,
-    children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-          path:'/login',
-          element:<Login></Login>
-        },
-        {
-          path:'/signup',
-          element:<SignUp></SignUp>
-        },
-        {
-          path:'/view/:id',
-          element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/toys/${params.id}`)
-
-        },
-        {
-          path:'/mytoy',
-          element: <PrivateRoute><MyToy></MyToy></PrivateRoute>
-        },
-        {
-          path:'/addatoy',
-          element:<PrivateRoute><AddaToy></AddaToy></PrivateRoute>
-        },
-        {
-          path:'/alltoy',
-          element:<AllToy></AllToy>
-
-        },
-        {
-          path:'/blog',
-          element:<Blog></Blog>
-        }
-        
-    ]
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/view/:id",
+        element: (
+          <PrivateRoute>
+            <SingleToy></SingleToy>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-mart-server-arifremal.vercel.app/toys/${params.id}`
+          ),
+      },
+      {
+        path: "/mytoy",
+        element: (
+          <PrivateRoute>
+            <MyToy></MyToy>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addatoy",
+        element: (
+          <PrivateRoute>
+            <AddaToy></AddaToy>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/alltoy",
+        element: <AllToy></AllToy>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+    ],
   },
 ]);
 export default router;

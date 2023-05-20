@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const AddaToy = () => {
   const { visitor } = useContext(AuthContext);
-  usePath('Add a toy')
+  usePath("Add a toy");
 
   const {
     register,
@@ -16,24 +16,23 @@ const AddaToy = () => {
     formState: { errors },
   } = useForm();
   const toyPost = (data) => {
-    fetch('http://localhost:5000/toysend',{
-      method:"POST",
-      headers: {"content-type": "application/json"},
-      body:JSON.stringify(data)
+    fetch("https://toy-mart-server-arifremal.vercel.app/toysend", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
     })
-    .then(res=> res.json())
-    .then ((result=>{
-      console.log(result);
-      
-      Swal.fire({
-        position: 'top-center',
-        icon: 'success',
-        title: 'Well Done added',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }))
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
 
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Well Done added",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
   return (
     <div>
@@ -41,7 +40,7 @@ const AddaToy = () => {
         Add a <span className="text-green-500"> Toy </span>
       </h1>
       <div className="items-center p-10 mx-auto ">
-      <form onSubmit={ handleSubmit(toyPost)}>
+        <form onSubmit={handleSubmit(toyPost)}>
           {errors.exampleRequired && <span>This field is required</span>}
           <input
             className="border w-1/2  p-1"
